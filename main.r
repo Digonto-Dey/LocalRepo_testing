@@ -43,10 +43,42 @@ plot5 <- ggplot(data.frame(x = 1:100, y = cumsum(rnorm(100))), aes(x = x, y = y)
     labs(title = "Line Plot", x = "Index", y = "Cumulative Sum")
 
 # 7. Bar Plot
-plot6 <- ggplot(data.frame(category = c("A", "B", "C"), count = c(25, 35, 40)), 
-                                 aes(x = category, y = count, fill = category)) +
+plot6 <- ggplot(
+    data.frame(category = c("A", "B", "C"), count = c(25, 35, 40)),
+    aes(x = category, y = count, fill = category)
+) +
     geom_bar(stat = "identity") +
     labs(title = "Bar Plot", x = "Category", y = "Count")
 
 # Display all plots
 grid.arrange(plot1, plot2, plot3, plot4, plot5, plot6, ncol = 2)
+
+# 8. Density Plot
+plot7 <- ggplot(data, aes(x = x, fill = category)) +
+    geom_density(alpha = 0.5) +
+    labs(title = "Density Plot", x = "Value", y = "Density")
+
+# 9. Faceted Scatter Plot
+plot8 <- ggplot(data, aes(x = x, y = y, color = category)) +
+    geom_point(alpha = 0.6) +
+    facet_wrap(~category) +
+    labs(title = "Faceted Scatter Plot", x = "X", y = "Y")
+
+# 10. Cumulative Distribution
+plot9 <- ggplot(data, aes(x = x, color = category)) +
+    stat_ecdf(geom = "step") +
+    labs(title = "Cumulative Distribution", x = "Value", y = "Cumulative Probability")
+
+# 11. Hexbin Plot
+plot10 <- ggplot(data, aes(x = x, y = y)) +
+    geom_hex(bins = 20) +
+    scale_fill_gradient(low = "lightblue", high = "darkblue") +
+    labs(title = "Hexbin Plot", x = "X", y = "Y")
+
+# 12. Ridge Plot
+plot11 <- ggplot(data, aes(x = x, y = category, fill = category)) +
+    geom_density_ridges(alpha = 0.6) +
+    labs(title = "Ridge Plot", x = "Value", y = "Category")
+
+# Display all plots
+grid.arrange(plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8, plot9, plot10, plot11, ncol = 2)
