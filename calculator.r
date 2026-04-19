@@ -11,7 +11,7 @@ calculator <- function(x, y, operation) {
 }
 
 # Example usage:
-print(calculator(10, 155, "add")) # 15
+print(calculator(10, 355, "add")) # 15
 print(calculator(10, 5, "subtract")) # 5
 print(calculator(10, 5, "multiply")) # 50
 print(calculator(10, 5, "divide")) # 2
