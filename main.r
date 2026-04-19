@@ -75,7 +75,7 @@ plot10 <- ggplot(data, aes(x = x, y = y)) +
     scale_fill_gradient(low = "lightblue", high = "darkblue") +
     labs(title = "Hexbin Plot", x = "X", y = "Y")
 
-# 12. Ridge Plot
+# 12. Ridge Plot (Requires ggridges package)
 plot11 <- ggplot(data, aes(x = x, y = category, fill = category)) +
     geom_density_ridges(alpha = 0.6) +
     labs(title = "Ridge Plot", x = "Value", y = "Category")
